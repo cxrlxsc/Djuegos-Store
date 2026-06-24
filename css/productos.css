@@ -1,0 +1,257 @@
+:root {
+    --azul-oscuro: #0e2b55;
+    --azul-medio: #18486a;
+    --azul-claro: #194459;
+    --blanco-humo: #f7f4f4;
+    --blanco-puro: #ffffff;
+    --texto-oscuro: #2c3e50;
+    --texto-secundario: #7f8c8d;
+    --borde-tarjeta: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Serif", serif;
+}
+
+body {
+    background-color: var(--blanco-humo);
+    color: var(--texto-oscuro);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* NAVBAR (Estilo consistente) */
+.header {
+    background: linear-gradient(90deg, var(--azul-claro), var(--azul-oscuro));
+    width: 100%;
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    height: 80%;
+}
+
+.logo {
+    object-fit: contain;
+    height: 100%;
+}
+
+.menu {
+    display: flex;
+    gap: 1.5em;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--blanco-humo);
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.menu a.active {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* CONTENIDO PRINCIPAL */
+.main-content {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3em 5%;
+    flex-grow: 1;
+}
+
+.page-header {
+    margin-bottom: 3em;
+    border-left: 5px solid var(--azul-medio);
+    padding-left: 1.2em;
+}
+
+.page-title {
+    font-size: 2.2em;
+    color: var(--azul-oscuro);
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    font-size: 1em;
+    color: var(--texto-secundario);
+    margin-top: 0.4em;
+}
+
+/* IMPLEMENTACIÓN DE CSS GRID PERFECTO */
+.products-grid {
+    display: grid;
+    /* auto-fill calcula cuántas tarjetas caben por fila según el tamaño de pantalla */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5em; /* Espaciado uniforme horizontal y vertical */
+}
+
+/* TARJETA DE PRODUCTO */
+.product-card {
+    background-color: var(--blanco-puro);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(14, 43, 85, 0.12);
+}
+
+/* Etiquetas de categoría */
+.product-badge {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco-puro);
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: 0.3em 0.8em;
+    border-radius: 4px;
+    z-index: 10;
+    letter-spacing: 0.05em;
+}
+
+/* Contenedor de Imagen */
+.product-image-wrapper {
+    background-color: #fafbfc;
+    height: 260px;
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--borde-tarjeta);
+}
+
+.product-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05); /* Efecto de zoom sutil en la imagen al hacer hover */
+}
+
+/* Detalles internos de la tarjeta */
+.product-details {
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que todo el contenido crezca equitativamente */
+}
+
+.product-title {
+    font-size: 1.25em;
+    color: var(--azul-oscuro);
+    margin-bottom: 0.6em;
+    line-height: 1.3;
+}
+
+.product-description {
+    font-size: 0.9em;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+    flex-grow: 1; /* Hace que el texto use el espacio disponible y alinee la sección inferior */
+}
+
+/* Precios y Botones */
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+    border-top: 1px solid var(--borde-tarjeta);
+}
+
+.product-price {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--azul-medio);
+}
+
+.product-actions {
+    display: flex;
+    gap: 0.5em;
+}
+
+/* Componente de Botones */
+.btn {
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 0.6em 1.2em;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--azul-medio);
+    color: var(--blanco-puro);
+}
+
+.btn-primary:hover {
+    background-color: var(--azul-oscuro);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--azul-medio);
+    border: 1px solid var(--azul-medio);
+}
+
+.btn-secondary:hover {
+    background-color: var(--blanco-humo);
+}
+
+/* FOOTER MINIMALISTA */
+.footer-bottom {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco-humo);
+    padding: 1.5em 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    margin-top: auto;
+}
+
+.footer-bottom a {
+    color: var(--blanco-humo);
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer-bottom a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}

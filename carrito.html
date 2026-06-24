@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Carrito de Compras - Djuegos Store</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="img/logo1.jpg" alt="Logo de Djuegos Store" class="logo">
+        </div>
+        <nav class="menu">
+            <a href="index.html">INICIO</a>
+            <a href="productos.html">PRODUCTOS</a>
+            <a href="#">CONTACTO</a>
+            <a href="#">UBICACIÓN</a>
+            <a href="#" class="active">CARRITO</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <header class="page-header">
+            <h1 class="page-title">Tu Carrito</h1>
+            <p class="page-subtitle">Revisa los artículos de tu carrito antes de proceder al pago.</p>
+        </header>
+
+        <section class="cart-layout">
+            
+            <div class="cart-items-container">
+                
+                <article class="cart-item">
+                    <div class="item-image-wrapper">
+                        <img src="img/producto1.jpg" alt="Figura Luffy Hakki">
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-title">Figura Luffy Hakki 17.5 cm</h3>
+                        <p class="item-category">Coleccionables</p>
+                        <button class="btn-remove">Eliminar</button>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="qty-btn">-</button>
+                        <input type="number" value="1" min="1" class="qty-input">
+                        <button class="qty-btn">+</button>
+                    </div>
+                    <div class="item-price-total">
+                        <span class="price-label">Subtotal</span>
+                        <span class="price-value">$16.50</span>
+                    </div>
+                </article>
+
+                <article class="cart-item">
+                    <div class="item-image-wrapper">
+                        <img src="img/producto3.jpg" alt="Manga One Piece Vol 100">
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-title">Manga One Piece - Volumen 100</h3>
+                        <p class="item-category">Anime</p>
+                        <button class="btn-remove">Eliminar</button>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="qty-btn">-</button>
+                        <input type="number" value="2" min="1" class="qty-input">
+                        <button class="qty-btn">+</button>
+                    </div>
+                    <div class="item-price-total">
+                        <span class="price-label">Subtotal</span>
+                        <span class="price-value">$23.98</span>
+                    </div>
+                </article>
+
+            </div>
+
+            <aside class="cart-summary">
+                <h2 class="summary-title">Resumen del Pedido</h2>
+                <div class="summary-row">
+                    <span>Subtotal (3 artículos)</span>
+                    <span>$40.48</span>
+                </div>
+                <div class="summary-row">
+                    <span>Envío estimado</span>
+                    <span>$4.50</span>
+                </div>
+                <hr class="summary-divider">
+                <div class="summary-row total-row">
+                    <span>Total a Pagar</span>
+                    <span class="total-price">$44.98</span>
+                </div>
+                <a href="#" class="btn-checkout">Proceder al Pago</a>
+                <a href="productos.html" class="btn-continue-shopping">Seguir comprando</a>
+            </aside>
+        </section>
+
+        <section class="related-products">
+            <h2 class="section-title">También te podría interesar</h2>
+            <div class="related-grid">
+                
+                <article class="related-card">
+                    <div class="related-img">
+                        <img src="img/producto2.jpg" alt="Sombrero Luffy">
+                    </div>
+                    <div class="related-info">
+                        <h4>Sombrero de Monkey D. Luffy</h4>
+                        <span class="related-price">$12.00</span>
+                        <a href="#" class="btn-add-sm">Añadir</a>
+                    </div>
+                </article>
+
+                <article class="related-card">
+                    <div class="related-img">
+                        <img src="https://i.pinimg.com/736x/80/41/e4/8041e49b3cd23976ae762c2b70662a5a.jpg" alt="Sudadera Akatsuki">
+                    </div>
+                    <div class="related-info">
+                        <h4>Sudadera Akatsuki</h4>
+                        <span class="related-price">$35.00</span>
+                        <a href="#" class="btn-add-sm">Añadir</a>
+                    </div>
+                </article>
+
+                <article class="related-card">
+                    <div class="related-img">
+                        <img src="https://i.pinimg.com/736x/79/14/73/79147319c3542b7a5652a2824c5f7094.jpg" alt="Katana Zoro">
+                    </div>
+                    <div class="related-info">
+                        <h4>Réplica Katana Shusui</h4>
+                        <span class="related-price">$85.00</span>
+                        <a href="#" class="btn-add-sm">Añadir</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bottom">
+        <p>&copy; 2023 Djuegos Store. Todos los derechos reservados.</p>
+        <a href="#">Política de privacidad</a>
+    </footer>
+
+</body>
+</html>

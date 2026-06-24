@@ -1,0 +1,242 @@
+/* Variables para mantener tu paleta de colores centralizada */
+:root {
+    --azul-oscuro: #0e2b55;
+    --azul-medio: #18486a;
+    --azul-claro: #194459;
+    --blanco-humo: #f7f4f4;
+    --blanco-puro: #ffffff;
+    --texto-oscuro: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: "Noto Serif", serif;
+}
+
+body {
+    background-color: var(--blanco-humo);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER Y NAVEGACIÓN */
+.header {
+    background: linear-gradient(90deg, var(--azul-claro), var(--azul-oscuro));
+    width: 100%;
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    height: 80%;
+}
+
+.logo {
+    object-fit: contain; /* Corregido de escale-down */
+    height: 100%;
+}
+
+.menu {
+    display: flex;
+    gap: 1.5em;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--blanco-humo);
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* SECCIÓN HERO (Bienvenida) */
+.hero-section {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco-humo);
+    text-align: center;
+    padding: 3em 2em;
+}
+
+.hero-section .titulo {
+    font-size: 2.5em;
+    margin-bottom: 0.2em;
+}
+
+.hero-section .divisor {
+    width: 150px;
+    height: 4px;
+    background-color: var(--blanco-humo);
+    border: none;
+    border-radius: 2px;
+    margin: 1em auto;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* SECCIÓN PRODUCTOS */
+.productos-section {
+    padding: 4em 5%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--blanco-puro);
+}
+
+.cards-container {
+    display: flex;
+    gap: 2em;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que bajen si la pantalla es pequeña */
+}
+
+/* TARJETAS DE PRODUCTO */
+.card {
+    background-color: var(--blanco-puro);
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sombra suave */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.card-img {
+    height: 250px;
+    background-color: var(--blanco-humo);
+    padding: 1em;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card-content {
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    text-align: center;
+}
+
+.card-content h2 {
+    font-size: 1.2em;
+    color: var(--azul-oscuro);
+    margin-bottom: 0.5em;
+}
+
+.card-content p {
+    font-size: 0.95em;
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+    flex-grow: 1; /* Empuja el botón hacia abajo */
+}
+
+.btn-comprar {
+    text-decoration: none;
+    color: var(--blanco-humo);
+    background-color: var(--azul-medio);
+    padding: 0.8em 2em;
+    border-radius: 6px;
+    font-weight: bold;
+    width: 80%;
+    transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background-color: var(--azul-claro);
+}
+
+/* FOOTER */
+.footer-section {
+    background-color: var(--azul-claro);
+    color: var(--blanco-humo);
+    margin-top: auto; /* Mantiene el footer abajo */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    padding: 2em 5%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-logo img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    background-color: var(--blanco-puro); /* Opcional: fondo para resaltar el logo */
+    border-radius: 50%;
+    padding: 0.5em;
+}
+
+.footer-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.footer-info p {
+    margin-bottom: 0.3em;
+    font-size: 0.95em;
+}
+
+.tel-link {
+    color: var(--blanco-puro);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.5em;
+}
+
+.footer-bottom {
+    background-color: var(--azul-oscuro);
+    padding: 1em 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+}
+
+.footer-bottom a {
+    color: var(--blanco-humo);
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
