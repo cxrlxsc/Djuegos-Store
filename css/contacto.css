@@ -1,0 +1,262 @@
+/* ==========================================================================
+   Variables de Color y Tipografía (Basadas en la imagen de referencia)
+   ========================================================================== */
+:root {
+    --color-primario: #0c263a;      /* Azul marino oscuro (Fondo principal) */
+    --color-secundario: #11354c;    /* Azul marino claro (Barra de navegación) */
+    --color-acento: #e0e0e0;        /* Gris claro para fondos secundarios */
+    --color-texto: #333333;         /* Gris oscuro para textos legibles */
+    --color-blanco: #ffffff;
+    --fuente-principal: 'Noto Serif', serif;
+}
+
+/* ==========================================================================
+   Reseteo Básico
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-blanco);
+    color: var(--color-texto);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   Header y Navegación
+   ========================================================================== */
+.header {
+    background-color: var(--color-secundario);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logo-container .logo {
+    max-height: 40px; /* Ajusta según el tamaño de tu logo1.jpg */
+    width: auto;
+}
+
+.menu {
+    display: flex;
+    gap: 25px;
+}
+
+.menu a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #a3c2d1; /* Un tono más claro al pasar el mouse */
+}
+
+/* ==========================================================================
+   Sección Principal (Contacto)
+   ========================================================================== */
+.main {
+    flex: 1; /* Permite que el footer baje si hay poco contenido */
+    padding: 60px 20px;
+    background-color: #f9f9fb; /* Un gris casi blanco para resaltar el formulario */
+}
+
+.contacto-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--color-blanco);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Títulos y Línea divisora (Estilo de la imagen "Bienvenido a Djuegos...") */
+.titulo {
+    color: var(--color-primario);
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.divisor {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-primario);
+    border: none;
+    margin: 0 auto 30px auto; /* Centrado */
+}
+
+.contacto-section > p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Formulario de Contacto
+   ========================================================================== */
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupo-form label {
+    font-weight: 600;
+    color: var(--color-primario);
+    font-size: 0.95rem;
+}
+
+.grupo-form input,
+.grupo-form textarea {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: var(--fuente-principal);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.grupo-form input:focus,
+.grupo-form textarea:focus {
+    border-color: var(--color-secundario);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(17, 53, 76, 0.1);
+}
+
+.btn-enviar {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: var(--fuente-principal);
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-enviar:hover {
+    background-color: var(--color-secundario);
+}
+
+.btn-enviar:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer-section {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-logo img {
+    max-height: 80px;
+    border-radius: 5px;
+}
+
+.footer-info {
+    text-align: center;
+}
+
+.footer-info h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.footer-info p {
+    margin-bottom: 5px;
+    color: #d1d5db;
+}
+
+.tel-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--color-blanco);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.tel-link:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    background-color: #081a28; /* Un tono aún más oscuro para la base */
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.85rem;
+}
+
+.footer-bottom a {
+    color: #9ca3af;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: var(--color-blanco);
+}
+
+/* ==========================================================================
+   Diseño Responsivo (Móviles y Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .contacto-section {
+        padding: 30px 20px;
+    }
+
+    .titulo {
+        font-size: 2rem;
+    }
+}
