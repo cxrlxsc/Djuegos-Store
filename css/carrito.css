@@ -426,32 +426,3 @@ body {
     text-decoration: underline;
 }
 
-/* ==========================================================================
-   Responsivo
-   ========================================================================== */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        height: auto;
-        padding: 1em 5%;
-        gap: 0.8em;
-    }
-
-    .menu {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1em;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 2em;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 0.5em;
-        text-align: center;
-    }
-}
