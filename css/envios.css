@@ -1,0 +1,234 @@
+:root {
+    --azul-oscuro: #0e2b55;
+    --azul-medio: #18486a;
+    --azul-claro: #194459;
+    --blanco-humo: #f7f4f4;
+    --blanco-puro: #ffffff;
+    --texto-oscuro: #2c3e50;
+    --texto-secundario: #7f8c8d;
+    --borde-tarjeta: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Serif", serif;
+}
+
+body {
+    background-color: var(--blanco-humo);
+    color: var(--texto-oscuro);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* NAVBAR (Estandarizada) */
+.header {
+    background: linear-gradient(90deg, var(--azul-claro), var(--azul-oscuro));
+    width: 100%;
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container { height: 80%; }
+.logo { object-fit: contain; height: 100%; }
+.menu { display: flex; gap: 1.5em; }
+
+.menu a {
+    text-decoration: none;
+    color: var(--blanco-humo);
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover, .menu a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* CONTENIDO PRINCIPAL */
+.main-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3em 5%;
+    flex-grow: 1;
+}
+
+.page-header {
+    margin-bottom: 3.5em;
+    border-left: 5px solid var(--azul-medio);
+    padding-left: 1.2em;
+}
+
+.page-title {
+    font-size: 2.2em;
+    color: var(--azul-oscuro);
+}
+
+.page-subtitle {
+    color: var(--texto-secundario);
+    margin-top: 0.4em;
+}
+
+/* TARJETAS DE MÉTODOS DE ENVÍO */
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+    margin-bottom: 4em;
+}
+
+.method-card {
+    background-color: var(--blanco-puro);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 10px;
+    padding: 2.5em 2em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(14, 43, 85, 0.08);
+}
+
+/* Destacar la tarjeta central (Envío Local) */
+.method-card.featured {
+    border: 2px solid var(--azul-medio);
+    background: linear-gradient(180deg, var(--blanco-puro) 0%, #f0f6fa 100%);
+}
+
+.method-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: var(--azul-medio);
+    color: var(--blanco-puro);
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 0.3em 1em;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.method-number {
+    font-size: 2em;
+    font-weight: 900;
+    color: var(--borde-tarjeta);
+    margin-bottom: 0.2em;
+}
+
+.method-title {
+    font-size: 1.3em;
+    color: var(--azul-oscuro);
+    margin-bottom: 0.6em;
+}
+
+.method-desc {
+    font-size: 0.95em;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+    margin-bottom: 2em;
+    flex-grow: 1;
+}
+
+.method-details {
+    border-top: 1px solid var(--borde-tarjeta);
+    padding-top: 1.2em;
+    font-size: 0.9em;
+    color: var(--texto-oscuro);
+}
+
+.method-details p {
+    margin-bottom: 0.3em;
+}
+
+/* BANNER GARANTÍA COLECCIONISTA */
+.guarantee-banner {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco-humo);
+    border-radius: 12px;
+    padding: 3.5em 3em;
+    margin-bottom: 5em;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(14, 43, 85, 0.2);
+}
+
+.guarantee-content h2 {
+    font-size: 1.6em;
+    margin-bottom: 0.8em;
+    color: var(--blanco-puro);
+}
+
+.guarantee-content p {
+    font-size: 1.05em;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* SECCIÓN PREGUNTAS FRECUENTES */
+.section-title {
+    font-size: 1.6em;
+    color: var(--azul-oscuro);
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2.5em;
+}
+
+.faq-item h3 {
+    font-size: 1.1em;
+    color: var(--azul-medio);
+    margin-bottom: 0.5em;
+}
+
+.faq-item p {
+    font-size: 0.95em;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+/* FOOTER */
+.footer-bottom {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco-humo);
+    padding: 1.5em 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    margin-top: auto;
+}
+.footer-bottom a { color: var(--blanco-humo); text-decoration: none; opacity: 0.8; }
+.footer-bottom a:hover { opacity: 1; text-decoration: underline; }
+
+/* Ajuste móvil para las preguntas frecuentes */
+@media (max-width: 600px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    .guarantee-banner {
+        padding: 2.5em 1.5em;
+    }
+}

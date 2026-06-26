@@ -1,0 +1,334 @@
+/* ==========================================================================
+   Variables de Color y Tipografía (Unificadas con la paleta principal)
+   ========================================================================== */
+:root {
+    --azul-oscuro: #0e2b55;
+    --azul-medio: #18486a;
+    --azul-claro: #194459;
+    --blanco-humo: #f7f4f4;
+    --blanco-puro: #ffffff;
+    --texto-oscuro: #333333;
+}
+
+/* ==========================================================================
+   Reseteo Básico
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Serif", serif;
+}
+
+body {
+    background-color: var(--blanco-humo);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Header y Navegación (Mismo patrón de diseño)
+   ========================================================================== */
+.header {
+    background: linear-gradient(90deg, var(--azul-claro), var(--azul-oscuro));
+    width: 100%;
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    height: 80%;
+}
+
+.logo {
+    object-fit: contain;
+    height: 100%;
+}
+
+.menu {
+    display: flex;
+    gap: 1.5em;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--blanco-humo);
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   Sección Hero (Añadida como en el diseño principal)
+   ========================================================================== */
+.hero-section {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco-humo);
+    text-align: center;
+    padding: 3em 2em;
+}
+
+.hero-section .titulo {
+    font-size: 2.5em;
+    margin-bottom: 0.2em;
+    color: var(--blanco-humo);
+}
+
+.hero-section .divisor {
+    width: 150px;
+    height: 4px;
+    background-color: var(--blanco-humo);
+    border: none;
+    border-radius: 2px;
+    margin: 1em auto;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Sección Principal (Contacto)
+   ========================================================================== */
+.main {
+    flex: 1;
+    padding: 60px 20px;
+    background-color: var(--blanco-puro);
+}
+
+.contacto-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--blanco-puro);
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Títulos y Línea divisora (Estilo unificado) */
+.titulo {
+    color: var(--azul-oscuro);
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.divisor {
+    width: 150px;
+    height: 4px;
+    background-color: var(--azul-oscuro);
+    border: none;
+    border-radius: 2px;
+    margin: 0 auto 30px auto;
+}
+
+.contacto-section > p {
+    text-align: center;
+    color: var(--texto-oscuro);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Formulario de Contacto
+   ========================================================================== */
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupo-form label {
+    font-weight: 600;
+    color: var(--azul-oscuro);
+    font-size: 0.95rem;
+}
+
+.grupo-form input,
+.grupo-form textarea {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: "Noto Serif", serif;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.grupo-form input:focus,
+.grupo-form textarea:focus {
+    border-color: var(--azul-medio);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(24, 72, 106, 0.1);
+}
+
+.btn-enviar {
+    background-color: var(--azul-medio);
+    color: var(--blanco-humo);
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: "Noto Serif", serif;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 80%;
+    align-self: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: var(--azul-claro);
+}
+
+.btn-enviar:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Footer (Mismo patrón de diseño)
+   ========================================================================== */
+.footer-section {
+    background-color: var(--azul-claro);
+    color: var(--blanco-humo);
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    padding: 2em 5%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    background-color: var(--blanco-puro);
+    border-radius: 50%;
+    padding: 0.5em;
+}
+
+.footer-info {
+    text-align: center;
+}
+
+.footer-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.footer-info p {
+    margin-bottom: 0.3em;
+    font-size: 0.95em;
+}
+
+.tel-link {
+    color: var(--blanco-puro);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.5em;
+}
+
+.tel-link:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    background-color: var(--azul-oscuro);
+    padding: 1em 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+}
+
+.footer-bottom a {
+    color: var(--blanco-humo);
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Diseño Responsivo (Móviles y Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header {
+        height: auto;
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .logo-container {
+        height: 50px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8em;
+    }
+
+    .hero-section .titulo {
+        font-size: 2em;
+    }
+
+    .contacto-section {
+        padding: 30px 20px;
+    }
+
+    .titulo {
+        font-size: 2rem;
+    }
+
+    .btn-enviar {
+        width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5em;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.5em;
+        text-align: center;
+    }
+}
