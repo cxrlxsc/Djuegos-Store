@@ -362,31 +362,96 @@ body {
     color: var(--blanco-puro);
 }
 
-/* FOOTER */
+/* ==========================================================================
+   Footer (estilo completo con logo circular, como el diseño de referencia)
+   ========================================================================== */
+.footer-section {
+    background-color: var(--azul-claro);
+    color: var(--blanco-humo);
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    padding: 2em 5%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    background-color: var(--blanco-puro);
+    border-radius: 50%;
+    padding: 0.5em;
+}
+
+.footer-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.footer-info p {
+    margin-bottom: 0.3em;
+    font-size: 0.95em;
+}
+
+.tel-link {
+    color: var(--blanco-puro);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.5em;
+}
+
 .footer-bottom {
     background-color: var(--azul-oscuro);
-    color: var(--blanco-humo);
-    padding: 1.5em 5%;
+    padding: 1em 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.8em;
-    margin-top: auto;
+    font-size: 0.85em;
 }
-.footer-bottom a { color: var(--blanco-humo); text-decoration: none; opacity: 0.8; }
-.footer-bottom a:hover { opacity: 1; text-decoration: underline; }
 
-/* MEDIA QUERIES PARA MÓVILES */
-@media (max-width: 850px) {
-    .cart-layout {
-        grid-template-columns: 1fr; /* Pasa a 1 sola columna en pantallas pequeñas */
-    }
-    
-    .cart-summary {
-        position: static; /* Quita el sticky en móviles */
+.footer-bottom a {
+    color: var(--blanco-humo);
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Responsivo
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 1em 5%;
+        gap: 0.8em;
     }
 
-    .cart-item {
-        flex-wrap: wrap; /* Permite que los elementos se acomoden si falta espacio */
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2em;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.5em;
+        text-align: center;
     }
 }
