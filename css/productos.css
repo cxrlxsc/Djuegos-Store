@@ -233,6 +233,99 @@ body {
     background-color: var(--blanco-humo);
 }
 
+/* MODAL DE DETALLES */
+.details-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 24, 40, 0.78);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em;
+    z-index: 200;
+}
+
+.details-modal-content {
+    background: var(--blanco-puro);
+    width: min(900px, 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.75em;
+    right: 0.75em;
+    border: none;
+    background: rgba(255,255,255,0.95);
+    color: var(--azul-oscuro);
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 50%;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.details-modal-image-wrapper {
+    padding: 1.5em;
+    background: linear-gradient(135deg, #f8fafc, #eef4f8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-modal-image {
+    max-width: 100%;
+    max-height: 440px;
+    object-fit: contain;
+}
+
+.details-modal-info {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+}
+
+.details-modal-info h3 {
+    color: var(--azul-oscuro);
+    font-size: 1.4em;
+}
+
+.details-modal-info p {
+    color: var(--texto-secundario);
+    line-height: 1.7;
+}
+
+.details-modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    margin-top: 0.5em;
+}
+
+.empty-cart {
+    padding: 2em;
+    text-align: center;
+    background: var(--blanco-puro);
+    border: 1px solid var(--borde-tarjeta);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+
+.empty-cart p {
+    color: var(--texto-secundario);
+}
+
 /* FOOTER MINIMALISTA */
 .footer-bottom {
     background-color: var(--azul-oscuro);

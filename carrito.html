@@ -33,55 +33,13 @@
 
         <section class="cart-layout">
             
-            <div class="cart-items-container">
-                
-                <article class="cart-item">
-                    <div class="item-image-wrapper">
-                        <img src="img/producto1.jpg" alt="Figura Luffy Hakki">
-                    </div>
-                    <div class="item-details">
-                        <h3 class="item-title">Figura Luffy Hakki 17.5 cm</h3>
-                        <p class="item-category">Coleccionables</p>
-                        <button class="btn-remove">Eliminar</button>
-                    </div>
-                    <div class="item-quantity">
-                        <button class="qty-btn">-</button>
-                        <input type="number" value="1" min="1" class="qty-input">
-                        <button class="qty-btn">+</button>
-                    </div>
-                    <div class="item-price-total">
-                        <span class="price-label">Subtotal</span>
-                        <span class="price-value">$16.50</span>
-                    </div>
-                </article>
-
-                <article class="cart-item">
-                    <div class="item-image-wrapper">
-                        <img src="img/producto3.jpg" alt="Manga One Piece Vol 100">
-                    </div>
-                    <div class="item-details">
-                        <h3 class="item-title">Manga One Piece - Volumen 100</h3>
-                        <p class="item-category">Anime</p>
-                        <button class="btn-remove">Eliminar</button>
-                    </div>
-                    <div class="item-quantity">
-                        <button class="qty-btn">-</button>
-                        <input type="number" value="2" min="1" class="qty-input">
-                        <button class="qty-btn">+</button>
-                    </div>
-                    <div class="item-price-total">
-                        <span class="price-label">Subtotal</span>
-                        <span class="price-value">$23.98</span>
-                    </div>
-                </article>
-
-            </div>
+            <div class="cart-items-container" id="cart-items-container"></div>
 
             <aside class="cart-summary">
                 <h2 class="summary-title">Resumen del Pedido</h2>
                 <div class="summary-row">
-                    <span>Subtotal (3 artículos)</span>
-                    <span>$40.48</span>
+                    <span>Subtotal (<span id="summary-count">0 artículos</span>)</span>
+                    <span id="summary-subtotal">$0.00</span>
                 </div>
                 <div class="summary-row">
                     <span>Envío estimado</span>
@@ -90,7 +48,7 @@
                 <hr class="summary-divider">
                 <div class="summary-row total-row">
                     <span>Total a Pagar</span>
-                    <span class="total-price">$44.98</span>
+                    <span class="total-price" id="summary-total">$4.50</span>
                 </div>
                 <a href="#" class="btn-checkout">Proceder al Pago</a>
                 <a href="productos.html" class="btn-continue-shopping">Seguir comprando</a>
@@ -142,6 +100,116 @@
         <p>&copy; 2023 Djuegos Store. Todos los derechos reservados.</p>
         <a href="#">Política de privacidad</a>
     </footer>
+
+    <script>
+        const cartStorageKey = 'djuegos-cart';
+
+        function getCart() {
+            try {
+                return JSON.parse(localStorage.getItem(cartStorageKey)) || [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem(cartStorageKey, JSON.stringify(cart));
+        }
+
+        function formatPrice(value) {
+            return `$${value.toFixed(2)}`;
+        }
+
+        function renderCart() {
+            const cart = getCart();
+            const container = document.getElementById('cart-items-container');
+            const countLabel = document.getElementById('summary-count');
+            const subtotalLabel = document.getElementById('summary-subtotal');
+            const totalLabel = document.getElementById('summary-total');
+
+            if (!cart.length) {
+                container.innerHTML = '<div class="empty-cart"><p>Tu carrito está vacío.</p><a href="productos.html" class="btn btn-secondary">Ver productos</a></div>';
+                countLabel.textContent = '0 artículos';
+                subtotalLabel.textContent = formatPrice(0);
+                totalLabel.textContent = formatPrice(4.50);
+                return;
+            }
+
+            const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const shipping = 4.50;
+            const total = subtotal + shipping;
+
+            container.innerHTML = cart.map((item) => `
+                <article class="cart-item">
+                    <div class="item-image-wrapper">
+                        <img src="${item.image}" alt="${item.title}">
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-title">${item.title}</h3>
+                        <p class="item-category">${item.category}</p>
+                        <button class="btn-remove" type="button" data-title="${item.title}">Eliminar</button>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="qty-btn" type="button" data-action="decrease" data-title="${item.title}">-</button>
+                        <input type="number" value="${item.quantity}" min="1" class="qty-input" data-title="${item.title}">
+                        <button class="qty-btn" type="button" data-action="increase" data-title="${item.title}">+</button>
+                    </div>
+                    <div class="item-price-total">
+                        <span class="price-label">Subtotal</span>
+                        <span class="price-value">${formatPrice(item.price * item.quantity)}</span>
+                    </div>
+                </article>
+            `).join('');
+
+            countLabel.textContent = `${cart.reduce((sum, item) => sum + item.quantity, 0)} artículos`;
+            subtotalLabel.textContent = formatPrice(subtotal);
+            totalLabel.textContent = formatPrice(total);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+
+            document.addEventListener('click', (event) => {
+                const removeButton = event.target.closest('.btn-remove');
+                if (removeButton) {
+                    const title = removeButton.dataset.title;
+                    const cart = getCart().filter(item => item.title !== title);
+                    saveCart(cart);
+                    renderCart();
+                }
+
+                const qtyButton = event.target.closest('.qty-btn');
+                if (qtyButton) {
+                    const title = qtyButton.dataset.title;
+                    const action = qtyButton.dataset.action;
+                    const cart = getCart().map((item) => {
+                        if (item.title === title) {
+                            if (action === 'increase') item.quantity += 1;
+                            if (action === 'decrease' && item.quantity > 1) item.quantity -= 1;
+                        }
+                        return item;
+                    }).filter(item => item.quantity > 0);
+                    saveCart(cart);
+                    renderCart();
+                }
+            });
+
+            document.addEventListener('change', (event) => {
+                if (event.target.classList.contains('qty-input')) {
+                    const title = event.target.dataset.title;
+                    const newValue = Number(event.target.value);
+                    const cart = getCart().map((item) => {
+                        if (item.title === title) {
+                            item.quantity = Number.isNaN(newValue) || newValue < 1 ? 1 : newValue;
+                        }
+                        return item;
+                    });
+                    saveCart(cart);
+                    renderCart();
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
